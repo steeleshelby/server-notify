@@ -28,5 +28,5 @@ while True:
     if info["is_success"] is False:
         sleep(60)
         continue
-    edit_server_info(players_count=info["playing"], players=info["players"])
+    edit_server_info(players_count=info["playing"], players=info["players"], is_server_alive=info["is_server_alive"])
     sleep(60)
