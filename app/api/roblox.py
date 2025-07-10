@@ -26,7 +26,7 @@ def server_info():
             return {
                 "is_success": True,
                 "is_server_alive": True,
-                "playing": server["playing"] + "/" + server["maxPlayers"],
+                "playing": str(server["playing"]) + "/" + str(server["maxPlayers"]),
                 "players": (
                     f"{player['name']} ({player['displayName']})"
                     for player in server["players"]
