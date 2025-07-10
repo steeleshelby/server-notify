@@ -47,16 +47,17 @@ shutdown_info = {
 }
 
 def edit_server_info(
-        players_count: int,
+        playing: str,
         players: list[str],
         is_server_alive: bool
 ):
     timestamp = int(time())
     if is_server_alive is True:
         players = "\n".join(f"• {player}" for player in players)
+        current, total = playing.split("/")
 
-        server_info["embeds"][0]["description"] = f"**🎮 Players Online: `{players_count}`**\n\n**👥 Players:\n** {players}\n\n> **🕒 Updated: <t:{timestamp}:R>**"
-        server_info["embeds"][0]["color"] = 0x00ff00 if players_count != 6 else 0xff0000
+        server_info["embeds"][0]["description"] = f"**🎮 Players Online: `{playing}`**\n\n**👥 Players:\n** {players}\n\n> **🕒 Updated: <t:{timestamp}:R>**"
+        server_info["embeds"][0]["color"] = 0x00ff00 if current != total else 0xff0000
     else:
         server_info["embeds"][0]["description"] = f"**🎮 Server Status: Offline**\n\n> **🕒 Updated: <t:{timestamp}:R>**"
         server_info["embeds"][0]["color"] = 0x666666
